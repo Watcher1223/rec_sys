@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+Assume there are \(n\) users (\(U_1, U_2, \ldots, U_n\)).
+
+The recommender score for each user \(U_i\) is given by:
+\[
+\text{Recommender Score}(U_i) = \sum_{j=1}^{3} \text{weight}_j \times \text{factor}_j(U_i)
+\]
+
+Where:
+\begin{align*}
+\text{factor}_1(U_i) &\text{: Clicking the same link} \\
+\text{factor}_2(U_i) &\text{: Answering the same question} \\
+\text{factor}_3(U_i) &\text{: Liking the same post}
+\end{align*}
+
+Assuming equal weights for simplicity (\(w_{\text{click}} = w_{\text{answer}} = w_{\text{like}} = \frac{1}{3}\)), the recommender score becomes:
+\[
+\text{Recommender Score}(U_i) = \frac{1}{3} \sum_{j=1}^{3} \text{factor}_j(U_i)
+\]
+
+The cosine similarity between two users \(U_i\) and \(U_k\) is calculated as:
+\[
+\text{Sim}(U_i, U_k) = \frac{\sum_{j=1}^{3} \text{Recommender Score}(U_i) \times \text{Recommender Score}(U_k)}{\sqrt{\sum_{j=1}^{3} (\text{Recommender Score}(U_i))^2} \times \sqrt{\sum_{j=1}^{3} (\text{Recommender Score}(U_k))^2}}
+\]
+
+\end{document}
